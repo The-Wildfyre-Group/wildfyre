@@ -1,0 +1,7 @@
+<% @resources.each do |resource| %>
+<%= resource.description %><br>
+<%= resource.link %><br>
+<%= resource.category %><br>
+<%= link_to "Edit", edit_resource_path(resource) %>
+<br><br>
+<% end %>
