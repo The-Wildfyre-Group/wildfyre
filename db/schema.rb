@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140628054812) do
+ActiveRecord::Schema.define(version: 20140710214957) do
 
   create_table "resources", force: true do |t|
     t.string   "description"
@@ -28,5 +28,23 @@ ActiveRecord::Schema.define(version: 20140628054812) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "users", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "password_digest",        default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string   "authentication_token"
+    t.string   "slug"
+    t.integer  "invited_by_id"
+    t.integer  "invitation_count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["slug"], name: "index_users_on_slug", using: :btree
 
 end
