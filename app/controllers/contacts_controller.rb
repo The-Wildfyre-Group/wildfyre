@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+  before_action :http_basic_authenticate
   before_action :find_contact, only: %w[show edit update destroy]
   
   def index
