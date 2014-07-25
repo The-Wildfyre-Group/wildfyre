@@ -1,0 +1,9 @@
+<% @contacts.each do |contact| %>
+
+<%= contact.first_name %>
+<%= contact.middle_name %>
+<%= contact.last_name %>
+<%= link_to "Edit", edit_contact_path(contact)%>
+<%= link_to "Delete", contact_path(contact), method: :delete, data: {confirm: "Are you sure?"}%>
+
+<% end %>
