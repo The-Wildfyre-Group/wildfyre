@@ -3,7 +3,7 @@
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
 	<head>
 
-		<%#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	  <%= csrf_meta_tags %>
 
@@ -75,25 +75,25 @@
 		<script src="/assets/js/fokus.min.js"></script>
 		<script src="/assets/js/custom.js"></script>
 
-		<script>
-			jQuery(document).ready(function ($) {
-			"use strict";
-			    $('#header-image-slideshow').backstretch([
-			        'assets/img/header/header_background_placeholder.png',
-			        'assets/img/header/header_background_placeholder.png',
-			        'assets/img/header/header_background_placeholder.png'
-			    ], {
-			        duration: 2000,
-			        fade: 1000
-			    });
-			});
-		</script>
+		// <script>
+	// 		jQuery(document).ready(function ($) {
+	// 		"use strict";
+	// 		    $('#header-image-slideshow').backstretch([
+	// 		        'assets/img/header/header_background_placeholder.png',
+	// 		        'assets/img/header/header_background_placeholder.png',
+	// 		        'assets/img/header/header_background_placeholder.png'
+	// 		    ], {
+	// 		        duration: 2000,
+	// 		        fade: 1000
+	// 		    });
+	// 		});
+	// 	</script>
 
 
 		<script>
 			jQuery(document).ready(function ($) {
 			"use strict";
-				$(".full-image").backstretch("assets/img/header/index.png");
+				$(".full-image").backstretch("/assets/img/header/index.png");
 			});
 		</script>
 
