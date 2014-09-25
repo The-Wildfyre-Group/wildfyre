@@ -485,3 +485,27 @@ border-radius: 0 0 4px 4px;
 }
 
 
+a.disabled-link-dark {color: #777;}
+a.disabled-link-light {color: #ccc;}
+
+.sidebar .widget ul.disabled li:before {
+	float: left;
+	font-family: 'FontAwesome';
+	content: "\f192";
+	color: #777;
+	padding-right: 10px;
+	font-size: 15px;
+}
+
+.sidebar .widget ul.disabled-links-light li:before {
+	float: left;
+	font-family: 'FontAwesome';
+	content: "\f192";
+	color: #ddd;
+	padding-right: 10px;
+	font-size: 15px;
+}
+
+.sidebar .widget ul.disabled-links-light li {
+	color: #eee;	
+}
