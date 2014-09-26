@@ -521,3 +521,10 @@ a.disabled-link-light {color: #ccc;}
 	margin-bottom: 0; 
 	padding-bottom: 0; 
 }
+
+
+blockquote {
+	margin: 20px 0;
+	padding: 9px 20px 0 20px;
+	border-left: 2px solid rgba(102, 102, 102, .5);
+}
