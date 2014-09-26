@@ -532,7 +532,7 @@ blockquote {
 
 
 .main-navigation ul.light > li a {
-	color: #444;
+	color: #888;
 	margin-right: 0;
 	padding: 10px;
 }
@@ -544,7 +544,7 @@ blockquote {
 }
 
 h2.logo.top-nav.light a {
-	color: #444;
+	color: #888;
 	z-index: 99999;
 }
 
