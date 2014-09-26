@@ -528,3 +528,28 @@ blockquote {
 	padding: 9px 20px 0 20px;
 	border-left: 2px solid rgba(102, 102, 102, .5);
 }
+
+
+
+.main-navigation ul.light > li a {
+	color: #444;
+	margin-right: 0;
+	padding: 10px;
+}
+
+.main-navigation ul.light > li a:hover {
+	color: #fff;
+	margin-right: 0;
+	padding: 10px;
+}
+
+h2.logo.top-nav.light a {
+	color: #444;
+	z-index: 99999;
+}
+
+
+h2.logo.top-nav.light a:hover {
+	color: #fff;
+	z-index: 99999;
+}
