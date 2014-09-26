@@ -158,7 +158,7 @@ h2.logo.top-nav {margin: 0; line-height: 50px;}
 }
 
 .title-container p {
-	color: #666;
+	color: #bbb;
 	font-size: 16px;
 	font-family: 'Crimson Text', serif;
 	font-style: italic;
@@ -508,4 +508,16 @@ a.disabled-link-light {color: #ccc;}
 
 .sidebar .widget ul.disabled-links-light li {
 	color: #eee;	
+}
+
+.team-image {height: 350px; width: 300px; overflow: hidden;}
+
+.team-image img {height: 260px; width: 295px; border: 1px solid #666;}
+
+.team-image p {margin: 0; text-transform: capitalize; color: #888;}
+
+.team-image h2 {
+	font-weight: 700;
+	margin-bottom: 0; 
+	padding-bottom: 0; 
 }
