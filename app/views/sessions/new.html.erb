@@ -1,0 +1,18 @@
+
+
+        <%= form_tag sessions_path, id: 'sign-in-form', :class => "animated fadeIn" do %>
+
+              <%#=link_to "/auth/facebook" do %>
+                <!-- <button class="btn btn-block btn-success col-md-8" type="button">
+                  <span class="pull-left"><i class="fa fa-facebook"></i></span>
+                  <span class="bold">Login with Facebook</span>
+                </button> -->
+              <%# end %>
+
+              <%= text_field_tag(:email, nil, {placeholder: "Email", class: "form-control", type: "text"}) %><br>
+
+              <%= text_field_tag(:password, nil, {placeholder: "Password", type: "password", class: "form-control"}) %><br>
+        
+              <%= submit_tag "LOGIN", :class => "btn btn-primary btn-cons btn-block", type: "submit" %><br>
+
+        <% end %>

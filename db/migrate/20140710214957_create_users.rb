@@ -1,6 +1,11 @@
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
+      
+      t.string :first_name
+      t.string :middle_name
+      t.string :last_name
+      
       ## Database authenticatable
       t.string :email,              :null => false, :default => ""
       t.string :password_digest, :null => false, :default => ""
@@ -16,11 +21,14 @@ class CreateUsers < ActiveRecord::Migration
       t.string :authentication_token
       
       ## For friendly ID.
-      t.string :slug
+      t.string :slug, null: false
       
       ## Invitations.
       t.integer :invited_by_id
       t.integer :invitation_count
+      
+      # admin
+      t.boolean :admin
 
 
       t.timestamps
