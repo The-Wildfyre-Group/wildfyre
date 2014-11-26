@@ -1,0 +1,12 @@
+// $('#modal_new').remove();
+// $('#modal_new').show();
+$('#incomplete_tasks').append('<%= j render(@task) %>');
+$('#myModal').modal('hide');
+$('#task-form')[0].reset()
+$('#edit_task_<%= @task.id %>').submitOnCheck();
+
+// <%if @result %>
+	
+//<%end%>
+
+

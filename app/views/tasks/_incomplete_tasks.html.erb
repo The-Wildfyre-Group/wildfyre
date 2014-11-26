@@ -1,0 +1,18 @@
+<% @incomplete_tasks.each do |task| %>
+	<%= form_for task do |f| %>
+	  <%= f.check_box :completed %>
+	  <%#= f.submit "Update" %>
+	  <%= f.label :completed, task.name %>
+	  created by: <%= User.find(task.added_by_id).full_name %>
+	  <% if task.category %>
+	  category: <%= task.category.name %>
+	  <% end %>
+	  assigned: <% task.users.each do |user| %>
+	            <%= user.full_name %>
+	            <% end %>
+	  <%= link_to "(remove)", task, method: :delete, data: {confirm: "Are you sure?"}, remote: true %>
+	  <%= link_to "edit", edit_task_path(task), id: task.id, remote: true %>
+	  <%#= link_to "edit", edit_task_path(task), id: task.id, remote: true %>
+	  <%#= link_to "New Task", new_task_path, id: "new_link", remote: true %>
+	<% end %>
+<% end %>
