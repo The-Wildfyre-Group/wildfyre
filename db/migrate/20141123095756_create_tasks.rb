@@ -8,6 +8,7 @@ class CreateTasks < ActiveRecord::Migration
       t.integer :site_id
       t.integer :project_id
       t.integer :closed_by_id
+      t.integer :resource_id
       t.date :completed_day
       t.time :completed_time
       t.date :start_day
