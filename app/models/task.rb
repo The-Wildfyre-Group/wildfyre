@@ -176,7 +176,9 @@ class Task < ActiveRecord::Base
     project_name_to_count = Hash.new(0) #new hash pairs will by default have 0 as values
     tasks.each do |task| 
       if task.passes_filters?(current_filters, 'category_name') and task.passes_filters?(current_filters, 'user') and task.passes_filters?(current_filters, 'site_name') and  task.passes_filters?(current_filters, 'todo_name') and task.passes_filters?(current_filters, 'priority') and task.passes_filters?(current_filters, 'deadline')
-        project_name_to_count[task.project_name] += 1
+        unless task.project_name.nil? || task.project_name.blank?
+          project_name_to_count[task.project_name] += 1
+        end
       end
     end
     project_name_filters = project_name_to_count.map do |project_name, count|
