@@ -14,7 +14,7 @@ class SitesController < ApplicationController
   end
   
   def show
-    
+    @complete_tasks = @site.tasks.where(completed: true)
   end
   
   def edit
