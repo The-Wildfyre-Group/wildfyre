@@ -3,25 +3,27 @@
 <!-- Latest compiled and minified JavaScript -->  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
 
-<%#= render 'shared/nav' %>
+<%= render 'shared/nav' %>
 <h1><%#= format(Date.today, 4)%></h1>
 
+<div class="page-sidebar mini mini-mobile" id="main-menu" data-inner-menu="1">
 <%= render 'filters' %>
-  
+</div>
+
      
-<a href="btn btn-primary btn-cons center" data-toggle="modal" data-target="#myModal">
+<a href="btn-primary btn-cons center" data-toggle="modal" data-target="#myModal">
   <i class="glyphicon glyphicon-plus-sign m-l-5 lh-18"></i>
 </a>
       
 
 <h2>Incomplete Tasks</h2>
 <div class="tasks" id="incomplete_tasks">
-  <%= render 'incomplete_tasks' %>
+  <%= render @incomplete_tasks %>
 </div>
 
 <h2>Completed Tasks</h2>
 <div class="tasks" id="complete_tasks">
-  <%= render 'complete_tasks' %>
+  <%= render @complete_tasks %>
 </div>
 
 <%= render 'new_task_modal'%>
@@ -30,4 +32,4 @@
 
 
 <%= render 'task_js'%>
-<%#= render 'js'%>
+<%= render 'js'%>

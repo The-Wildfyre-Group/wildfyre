@@ -1,8 +1,10 @@
-var html1 =  "<%= j render 'incomplete_tasks' %>";
-var html2 =  "<%= j render 'complete_tasks' %>";
+var html1 =  "<%= j render @incomplete_tasks %>";
+var html2 =  "<%= j render @complete_tasks %>";
 
 
 $('#incomplete_tasks').empty();
   $('#incomplete_tasks').append(html1);
 $('#complete_tasks').empty();
   $('#complete_tasks').append(html2);
+  
+  
