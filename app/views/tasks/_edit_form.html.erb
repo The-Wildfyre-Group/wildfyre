@@ -1,4 +1,5 @@
 <%= form_for @task, html: {data: {remote: true}} do |f|   %>
+  <% unless @task.completed? %>
   <%= f.text_field  :name  %>
   <%= f.text_field  :notes  %>
   End Date & Time: <%= f.date_field :end_day %><%= f.time_field :end_time %><br><br>
@@ -9,8 +10,12 @@
   Source: <%= f.text_field :source %><br><br>
   Recurring: <%= f.text_field :recurring %> <%= f.text_field :recurring_time %><br><br>
    <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "Select Category"}, { :multiple => false, :style => "width:100%", :id => "multi"  } %>
-
-  
+   <% else %>
+    Actual Duration: <%= f.text_field :duration_expected %><%= f.text_field :duration_expected_units %><br><br>
+	Final Notes: <%= f.text_area :completion_notes %><br>
+   
+   
+   <% end %>
   <%= f.submit :submit %>
 <% end %>
 
