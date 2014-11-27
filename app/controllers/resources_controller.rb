@@ -1,4 +1,4 @@
-class ResourcesController < ActionController::Base
+class ResourcesController < ApplicationController
   
   def index
     @resources = Resource.all
@@ -10,7 +10,9 @@ class ResourcesController < ActionController::Base
   
   def create
     @resource = Resource.new(resource_params)
+    @resource.user_id = current_user.id
     if @resource.save
+      
       redirect_to resources_path
     else
       render :new
@@ -18,7 +20,7 @@ class ResourcesController < ActionController::Base
   end
   
   def show
-    
+    @resource = Resource.friendly.find(params[:id])
   end
   
   def edit
@@ -41,7 +43,7 @@ class ResourcesController < ActionController::Base
   protected
   
   def resource_params
-    params.require(:resource).permit(:description, :link, :notes, :status, :category, :completed_date_1, :complete_date_2, :resource)
+    params.require(:resource).permit(:name, :units, :unit, :format, :description, :link, :category, :resource, :level)
   end
    
 end

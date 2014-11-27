@@ -1,0 +1,8 @@
+<% @resource.resource_completions.each do |x| %>
+
+<%= User.find(x.user_id).full_name %> is <%= number_to_percentage(x.completion_percentage) %> finished this resource.
+the resource was checked out on <%= x.created_at%>
+
+
+
+<% end %>

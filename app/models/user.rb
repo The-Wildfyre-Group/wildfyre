@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_one :profile
   has_many :user_profile_pictures, dependent: :destroy
   
+  has_many :resource_completions
+  
   has_many :assigned_tasks, dependent: :destroy
   has_many :tasks, through: :assigned_tasks
   
@@ -73,6 +75,10 @@ class User < ActiveRecord::Base
     all.each do |user|
       return user if (user.full_name == full_name)
     end
+  end
+  
+  def checkout_resource!(params)
+    resource_completions.create!(params)
   end
   
 end

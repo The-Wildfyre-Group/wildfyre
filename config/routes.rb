@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :tasks
   resources :users
   resources :sessions
+  resources :resource_completions
   
   get "login" => "sessions#new", as: :login
   # The priority is based upon order of creation: first created -> highest priority.

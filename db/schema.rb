@@ -124,10 +124,11 @@ ActiveRecord::Schema.define(version: 20141124092756) do
 
   create_table "resource_completions", force: true do |t|
     t.integer  "resource_id"
-    t.float    "completion_percentage"
+    t.integer  "user_id"
+    t.float    "completion_percentage", default: 0.0
     t.integer  "units"
     t.string   "unit"
-    t.boolean  "completed"
+    t.boolean  "completed",             default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -205,6 +206,7 @@ ActiveRecord::Schema.define(version: 20141124092756) do
     t.integer  "site_id"
     t.integer  "project_id"
     t.integer  "closed_by_id"
+    t.integer  "resource_id"
     t.date     "completed_day"
     t.time     "completed_time"
     t.date     "start_day"
