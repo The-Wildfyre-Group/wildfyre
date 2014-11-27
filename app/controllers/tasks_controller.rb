@@ -11,20 +11,20 @@ class TasksController < ApplicationController
      
      # these filters must be retrieved before we apply filters
      if params[:ajax].blank?
-       @complete_user_filters = @complete_tasks.user_filters_for_tasks(@complete_tasks, @current_filters)
+       @complete_user_filters = Task.user_filters_for_tasks(@complete_tasks, @current_filters)
        @incomplete_user_filters = Task.user_filters_for_tasks(@incomplete_tasks, @current_filters)
-       @complete_category_filters = @complete_tasks.category_filters_for_tasks(@complete_tasks, @current_filters)
+       @complete_category_filters = Task.category_filters_for_tasks(@complete_tasks, @current_filters)
        @incomplete_category_filters = Task.category_filters_for_tasks(@incomplete_tasks, @current_filters)
-       @complete_site_filters = @complete_tasks.site_filters_for_tasks(@complete_tasks, @current_filters)
-       @incomplete_site_filters = @incomplete_tasks.site_filters_for_tasks(@incomplete_tasks, @current_filters)
-       @complete_todo_filters = @complete_tasks.todo_filters_for_tasks(@complete_tasks, @current_filters)
-       @incomplete_todo_filters = @incomplete_tasks.todo_filters_for_tasks(@incomplete_tasks, @current_filters)
-       @complete_priority_filters = @complete_tasks.priority_filters_for_tasks(@complete_tasks, @current_filters)
-       @incomplete_priority_filters = @incomplete_tasks.priority_filters_for_tasks(@incomplete_tasks, @current_filters)
-       @complete_deadline_filters = @complete_tasks.deadline_filters_for_tasks(@complete_tasks, @current_filters)
-       @incomplete_deadline_filters = @incomplete_tasks.deadline_filters_for_tasks(@incomplete_tasks, @current_filters)
-       @complete_project_filters = @complete_tasks.project_filters_for_tasks(@complete_tasks, @current_filters)
-       @incomplete_projectfilters = @incomplete_tasks.project_filters_for_tasks(@incomplete_tasks, @current_filters)
+       @complete_site_filters = Task.site_filters_for_tasks(@complete_tasks, @current_filters)
+       @incomplete_site_filters = Task.site_filters_for_tasks(@incomplete_tasks, @current_filters)
+       @complete_todo_filters = Task.todo_filters_for_tasks(@complete_tasks, @current_filters)
+       @incomplete_todo_filters = Task.todo_filters_for_tasks(@incomplete_tasks, @current_filters)
+       @complete_priority_filters = Task.priority_filters_for_tasks(@complete_tasks, @current_filters)
+       @incomplete_priority_filters = Task.priority_filters_for_tasks(@incomplete_tasks, @current_filters)
+       @complete_deadline_filters = Task.deadline_filters_for_tasks(@complete_tasks, @current_filters)
+       @incomplete_deadline_filters = Task.deadline_filters_for_tasks(@incomplete_tasks, @current_filters)
+       @complete_project_filters = Task.project_filters_for_tasks(@complete_tasks, @current_filters)
+       @incomplete_project_filters = Task.project_filters_for_tasks(@incomplete_tasks, @current_filters)
      end
 
 
@@ -73,6 +73,11 @@ class TasksController < ApplicationController
    def update
      @task = Task.find(params[:id])
      @task.update_attributes!(task_params)
+     if @task.completed?
+       @task.update_attributes(closed_by_id: current_user.id, completed_day: Date.today, completed_time: Time.now)
+     else
+       @task.update_attributes(closed_by_id: nil, completed_day: nil, completed_time: nil)
+     end
      respond_to do |format|
        format.html { redirect_to tasks_url }
        format.js
