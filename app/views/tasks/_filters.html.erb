@@ -1,18 +1,6 @@
 
-
-<div class="inner-menu nav-collapse">   
-  <div id="inner-menu">
-    <div class="inner-menu-content mt0 p-r-25 p-l-20 pb10">
-      <h4 class="mb0 pb0">
-        <span class="h4 item-count animate-number m-r-5 text-success" data-value="<%= number_with_delimiter(Task.count) %>" data-animation-duration="1800">0
-        </span>
-        <span class="h6 gf_muli upper ws-2 text-white">tasks</span>
-      </h4>
-    </div>
-	
-	
     <!-- deadline Filters -->
-	<% unless @incomplete_deadline_filters.nil? %>
+	<% unless @incomplete_deadline_filters.blank? %>
         <h4>By Deadline</h4>
       <ul id="destination_filters no-margin" class="small-items list-group pb10 mb5 filters">
         <!-- <hr/> -->
@@ -32,7 +20,7 @@
       </ul>
 	  <% end %>
 
-<% unless @incomplete_user_filters.nil? %>
+<% unless @incomplete_user_filters.blank? %>
     <!-- User Filters --> 
         <h4>Assigned To</h4>
       <ul id="destination_filters no-margin" class="small-items list-group pb10 mb5 filters">
@@ -55,7 +43,7 @@
 	  
 	  
 	  
-	  <% unless @incomplete_category_filters.nil? %>
+	  <% unless @incomplete_category_filters.blank? %>
       <!-- Category Filters --> 
           <h4>By Category</h4>
         <ul id="destination_filters no-margin" class="small-items list-group pb10 mb5 filters">
@@ -76,7 +64,7 @@
         </ul>
 		<% end %>
 		
-		<% unless @incomplete_priority_filters.nil? %>
+		<% unless @incomplete_priority_filters.blank? %>
         <!-- Priority Filters --> 
             <h4>By Priority</h4>
           <ul id="destination_filters no-margin" class="small-items list-group pb10 mb5 filters">
@@ -97,7 +85,7 @@
           </ul>
 		  <% end %>
 		  
-		  <% unless @incomplete_site_filters.nil? %>
+		  <% unless @incomplete_site_filters.blank? %>
           <!-- Site Filters --> 
               <h4>By Site</h4>
             <ul id="destination_filters no-margin" class="small-items list-group pb10 mb5 filters">
@@ -119,7 +107,7 @@
 			<% end %>
     
       <!-- Project Filters --> 
-	  <% unless @incomplete_project_filters.nil? %>
+	  <% unless @incomplete_project_filters.blank? %>
           <h4>By Project</h4>
         <ul id="destination_filters no-margin" class="small-items list-group pb10 mb5 filters">
           <!-- <hr/> -->
@@ -139,7 +127,7 @@
         </ul>
 		<% end %>
 	  
-	  <% unless @incomplete_todo_filters.nil? %>
+	  <% unless @incomplete_todo_filters.blank? %>
       <!-- ToDo Filters --> 
           <h4>By Item</h4>
         <ul id="destination_filters no-margin" class="small-items list-group pb10 mb5 filters">
@@ -160,5 +148,3 @@
         </ul>
 		<% end %>
 	  
-	  
-	
