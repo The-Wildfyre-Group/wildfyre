@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20141124092756) do
 
   create_table "budgets", force: true do |t|
     t.date     "as_of"
-    t.date     "until"
+    t.date     "date_until"
     t.string   "name"
     t.string   "slug",       null: false
     t.datetime "created_at"

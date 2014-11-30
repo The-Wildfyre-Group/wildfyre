@@ -1,0 +1,43 @@
+<%= form_for @budget do |f| %>
+
+As of:<%= f.date_field :as_of %><br>
+Until: <%= f.date_field :date_until %><br>
+Name: <%= f.text_field :name %><br>
+
+<br><br>
+
+    <!-- BUDGET Items-->
+    <div id="video_uploads" class="grid simple">
+      <div class="grid-body no-border"> <br>
+        <h4 class="border"><span class="semi-bold text-primary">Add Item</span></h4>
+
+        <div class="form-group clearfix">
+          <%= link_to_add_association f, :budget_items, partial: "budget_items_fields", :html_options => {"association-insertion-method" => "after" } do %>
+            <button class="btn btn-primary m-t-10 m-r-5"> <i class="fa fa-plus-circle m-r-5"></i> Add Budget Item </button>
+          <% end %>
+
+          <br>
+          <br>
+          <%= f.fields_for :budget_items do |builder| %>
+            <%= render partial: 'budget_items_fields', locals: { :f => builder } %>
+          <% end %>
+        </div>
+
+<br><br>
+        <div class="form-actions tools">
+          <div class="pull-right actions">
+            <%= f.submit "Update Budget", class: "btn btn-success btn-cons" %>
+            <!-- <a type="button" href="javascript:;" class="collapse btn btn-white btn-cons">Hide</a> -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+<% end %>
+
+
+
+    
