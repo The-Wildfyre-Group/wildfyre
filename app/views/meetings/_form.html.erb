@@ -1,0 +1,28 @@
+<%= form_for @meeting do |f| %>
+
+Date:<%= f.date_field :as_of %><br>
+Name: <%= f.text_field :name %><br>
+Category:<%= f.text_field :category %><br>
+
+<!-- BUDGET Items-->
+<div id="video_uploads" class="grid simple">
+  <div class="grid-body no-border"> <br>
+    <h4 class="border"><span class="semi-bold text-primary">Add Item</span></h4>
+
+    <div class="form-group clearfix">
+      <%= link_to_add_association f, :meeting_items, partial: "meeting_items_fields", :html_options => {"association-insertion-method" => "after" } do %>
+        <button class="btn btn-primary m-t-10 m-r-5"> <i class="fa fa-plus-circle m-r-5"></i> Add meeting Item </button>
+      <% end %>
+
+      <br>
+      <br>
+      <%= f.fields_for :meeting_items do |builder| %>
+        <%= render partial: 'meeting_items_fields', locals: { :f => builder } %>
+      <% end %>
+    </div>
+	
+	
+
+<%= f.submit %>
+
+<%end%>

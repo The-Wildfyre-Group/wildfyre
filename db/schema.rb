@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141124092756) do
+ActiveRecord::Schema.define(version: 20141130222559) do
 
   create_table "assigned_tasks", force: true do |t|
     t.integer  "task_id"
@@ -53,6 +53,24 @@ ActiveRecord::Schema.define(version: 20141124092756) do
     t.string   "last_name"
     t.integer  "added_by_id"
     t.string   "slug",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "meeting_items", force: true do |t|
+    t.integer  "meeting_id"
+    t.integer  "user_id"
+    t.string   "category"
+    t.text     "item"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "meetings", force: true do |t|
+    t.date     "as_of"
+    t.string   "name"
+    t.string   "category"
+    t.string   "slug",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
