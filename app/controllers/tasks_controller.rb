@@ -75,6 +75,7 @@ class TasksController < ApplicationController
      @task.update_attributes!(task_params)
      if @task.completed?
        @task.update_attributes(closed_by_id: current_user.id, completed_day: Date.today, completed_time: Time.now)
+       @task.site.update_attributes( last_activity: @task.id, last_user: current_user.id, last_task_completed: Time.now) if @task.site.nil? 
      else
        @task.update_attributes(closed_by_id: nil, completed_day: nil, completed_time: nil)
      end
