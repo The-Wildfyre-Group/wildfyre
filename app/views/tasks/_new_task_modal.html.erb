@@ -22,6 +22,8 @@
 		  <%= f.collection_select :project_id, Project.all, :id, :name, {prompt: "Select Project"}, { :multiple => false, :style => "width:100%", :id => "multi"  } %>
 		  <%= f.collection_select :to_do_id, ToDo.all, :id, :name, {prompt: "Select Item"}, { :multiple => false, :style => "width:100%", :id => "multi"  } %>
 		  <%= f.collection_select :user_ids, User.all, :id, :first_name , {prompt: "Assign to User"}, { :multiple => true, :style => "width:100%", :id => "multi"  } %>
+		  
+		  <%= f.collection_select :resource_id, Resource.all, :id, :name, {prompt: "Select Resource"}, { :multiple => false, :style => "width:100%", :id => "multi"  } %>
 		 
 		
       </div>
