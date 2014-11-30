@@ -33,6 +33,9 @@ gem 'spring',        group: :development
 #for user slugs
 gem 'friendly_id'
 
+#for javascript/jquery has_many associations
+gem "cocoon"
+
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
