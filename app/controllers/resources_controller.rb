@@ -12,7 +12,7 @@ class ResourcesController < ApplicationController
     @resource = Resource.new(resource_params)
     @resource.user_id = current_user.id
     if @resource.save
-      
+      Activity.track(current_user.id, nil, "Added Resource", params[:controller], @resource.id, true)
       redirect_to resources_path
     else
       render :new

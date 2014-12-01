@@ -3,6 +3,7 @@ class TasksController < ApplicationController
    #respond_to :html, :js
   
    def index
+     @activities = Activity.order("id desc")
      @task = Task.new
      @current_filters = (params[:current_filters] || {}).values.uniq
      @tasks = Task.all
@@ -39,8 +40,8 @@ class TasksController < ApplicationController
      p @incomplete_tasks.count
      p"=========================================================="
      respond_to do |format|
-       format.html
        format.js
+       format.html
      end
    end
   
@@ -54,8 +55,8 @@ class TasksController < ApplicationController
      @result = @task.save
      if @result
      respond_to do |format|
-       format.html { redirect_to tasks_url }
        format.js
+       format.html { redirect_to tasks_url }
      end
      else
        render :new
@@ -65,8 +66,8 @@ class TasksController < ApplicationController
    def edit
      @task = Task.find(params[:id])
      respond_to do |format|
+       format.js
        format.html { redirect_to tasks_url }
-       format.js 
      end
    end
    
@@ -74,22 +75,24 @@ class TasksController < ApplicationController
      @task = Task.find(params[:id])
      @task.update_attributes!(task_params)
      if @task.completed?
+       Activity.track(current_user.id, nil, "Completed Task", params[:controller], @task.id, true)
        @task.update_attributes(closed_by_id: current_user.id, completed_day: Date.today, completed_time: Time.now)
-       @task.site.update_attributes( last_activity: @task.id, last_user: current_user.id, last_task_completed: Time.now) if @task.site.nil? 
+       @task.site.update_attributes( last_activity: @task.id, last_user: current_user.id, last_task_completed: Time.now) unless @task.site.nil? 
+       @task.project.update_attributes( last_activity: @task.id, last_user: current_user.id, last_task_completed: Time.now) unless @task.project.nil? 
      else
        @task.update_attributes(closed_by_id: nil, completed_day: nil, completed_time: nil)
      end
      respond_to do |format|
-       format.html { redirect_to tasks_url }
        format.js
+       format.html { redirect_to tasks_url }
      end
    end
 
    def destroy
      @task = Task.destroy(params[:id])
      respond_to do |format|
-       format.html { redirect_to tasks_url }
        format.js
+       format.html { redirect_to tasks_url }
      end
    end
   
@@ -100,7 +103,7 @@ class TasksController < ApplicationController
    end
 
    def task_params
-     params.require(:task).permit(:name, :category_id, :to_do_id, :site_id, :project_id, {user_ids: []}, :start_day, :end_day, :start_time, :end_time, :public, :duration_expected, :duration_expected_units, :duration_actual, :duration_actual_units, :priority, :source, :notes, :completion_notes, :recurring, :recurring_time, :completed )
+     params.require(:task).permit(:name, :category_id, :to_do_id, :site_id, :project_id, :meeting_id, {user_ids: []}, :start_day, :end_day, :start_time, :end_time, :public, :duration_expected, :duration_expected_units, :duration_actual, :duration_actual_units, :priority, :source, :notes, :completion_notes, :recurring, :recurring_time, :completed )
    end
   
 end

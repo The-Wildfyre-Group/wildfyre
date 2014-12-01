@@ -8,6 +8,8 @@ class ResourceCompletionsController < ApplicationController
     
   def create
     current_user.checkout_resource!(resource_completion_params)
+    @resource_completion = ResourceCompletion.last
+    Activity.track(current_user.id, nil, "Checked Out Resource", params[:controller], @resource_completion.id, true)
     redirect_to :back
   end
     

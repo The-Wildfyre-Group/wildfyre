@@ -1,0 +1,7 @@
+<%= render 'activities/variables', activity: activity %>
+
+<% if activity.action == "Checked Out Resource" %>
+  <%= User.find(activity.user_id).first_name.capitalize %> checked out a resource: <%= link_to @resource_completion.resource.name, @resource_completion.resource %>.
+<% elsif activity.action == "Shelved Resource" %>
+  <%= User.find(activity.user_id).first_name %> deleted a resource tracking.
+<% end %>

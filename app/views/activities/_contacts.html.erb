@@ -1,0 +1,7 @@
+<%= render 'activities/variables', activity: activity %>
+
+<% if activity.action == "Added Contact" %>
+  <%= User.find(activity.user_id).first_name.capitalize %> added <%= link_to @contact.full_name, @contact %> to contacts.
+<% elsif activity.action == "Remove Contact" %>
+  <%= User.find(activity.user_id).first_name %> deleted <%= @contact.full_name %> from contacts.
+<% end %>

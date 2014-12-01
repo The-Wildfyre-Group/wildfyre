@@ -13,6 +13,7 @@ class BudgetsController < ApplicationController
   def create
     @budget = Budget.new(budget_params)
     if @budget.save
+      Activity.track(current_user.id, nil, "Added Budget", params[:controller], @budget.id, true)
       redirect_to budgets_path
     else
       render :new

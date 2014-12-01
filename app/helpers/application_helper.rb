@@ -52,4 +52,15 @@ module ApplicationHelper
     end
   end
   
+  def find_class_name(controller)
+    split = controller.split("_")
+    last = split.last.capitalize.singularize
+    first = split[0..-2].each { |word| word.capitalize! }.join
+    return first + last
+  end
+  
+  def object_exists?(controller, id)
+    eval(find_class_name(controller)).send("exists?", id)
+  end
+  
 end
