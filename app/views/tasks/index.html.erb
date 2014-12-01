@@ -4,7 +4,9 @@
 
 
 <%= render 'shared/nav' %>
-<h1><%#= format(Date.today, 4)%></h1>
+<h1><%= format(Date.today, 4)%></h1>
+
+<%= render 'activity_feed' %>
 
 <div class="page-sidebar mini mini-mobile" id="main-menu" data-inner-menu="1">
 <%= render 'filters' %>
