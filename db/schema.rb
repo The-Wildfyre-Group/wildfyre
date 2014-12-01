@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141130222559) do
+ActiveRecord::Schema.define(version: 20141201050712) do
+
+  create_table "activities", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "task_id"
+    t.string   "action"
+    t.string   "trackable_type"
+    t.integer  "trackable_id"
+    t.boolean  "public"
+    t.boolean  "admin"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "assigned_tasks", force: true do |t|
     t.integer  "task_id"
@@ -225,6 +237,7 @@ ActiveRecord::Schema.define(version: 20141130222559) do
     t.integer  "project_id"
     t.integer  "closed_by_id"
     t.integer  "resource_id"
+    t.integer  "meeting_id"
     t.date     "completed_day"
     t.time     "completed_time"
     t.date     "start_day"
