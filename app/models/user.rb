@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
   #after_update :password_changed?, :on => :update
   before_save :encrypt_password
 
+  attr_accessor :current_password
   
   def avatar
     if user_profile_pictures.last.try(:id).blank?
