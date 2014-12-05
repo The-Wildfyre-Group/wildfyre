@@ -314,6 +314,26 @@
    Tag.where(name: "Consulting", slug: "consulting").first_or_create!
    Tag.where(name: "Credentialing", slug: "credentialing").first_or_create!
    Tag.where(name: "Misc", slug: "misc").first_or_create!
+   Tag.where(name: "CSS3", slug: "css3").first_or_create!
+   Tag.where(name: "HTML5", slug: "html5").first_or_create!
+   Tag.where(name: "Asset Pipeline", slug: "asset-pipeline").first_or_create!
+   Tag.where(name: "Bootstrap", slug: "bootstrap").first_or_create!
+   Tag.where(name: "Foundation", slug: "foundation").first_or_create!
+   Tag.where(name: "Grunt", slug: "grunt").first_or_create!
+   Tag.where(name: "SASS", slug: "sass").first_or_create!
+   Tag.where(name: "LESS", slug: "less").first_or_create!
+   Tag.where(name: "Unix", slug: "unix").first_or_create!
+   Tag.where(name: "Typing", slug: "typing").first_or_create! 
+   Tag.where(name: "Javascript", slug: "javascript").first_or_create!
+   Tag.where(name: "JQuery", slug: "jquery").first_or_create!
+   Tag.where(name: "AJAX", slug: "ajax").first_or_create!
+   Tag.where(name: "Lynda", slug: "lynda").first_or_create!
+   Tag.where(name: "SQL", slug: "sql").first_or_create!
+   Tag.where(name: "Regex", slug: "regex").first_or_create!
+   Tag.where(name: "Ruby", slug: "ruby").first_or_create!
+   Tag.where(name: "Ruby on Rails", slug: "ruby-on-rails").first_or_create! 
+   Tag.where(name: "Heroku", slug: "heroku").first_or_create!
+   Tag.where(name: "GIT", slug: "git").first_or_create!  
    
    
    Project.where(name: "Take Action Performance", slug: "take-action-performance",  status: "In Progress", url: "http://www.takeactionperformance.com", git: "https://github.com/The-Wildfyre-Group/tap", description: "Full platform for athlete needs: nutrition, performance, injuries, specialists, etc." ).first_or_create!
