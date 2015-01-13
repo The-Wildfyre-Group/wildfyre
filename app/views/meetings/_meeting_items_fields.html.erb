@@ -1,0 +1,7 @@
+<div class='nested-fields'>
+Item: <%= f.text_field :item %><br>
+Category: <%= f.select(:category, Meeting.categories_for_meeting_items, {prompt: "Select Category"}, {:class => "form-control"})%><br>
+<%= f.hidden_field :user_id, :value => current_user.id %>
+<%= link_to_remove_association "Remove", f, class: "btn btn-danger pull-right btn-small" %>
+ 
+</div>

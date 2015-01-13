@@ -1,0 +1,11 @@
+<% @budgets.each do |budget| %>
+
+
+<%= budget.name %><br>
+<%= budget.as_of %><br>
+<%= budget.date_until %><br>
+<%= link_to "edit", edit_budget_path(budget) %>
+<%= link_to "view", budget %>
+
+
+<% end %>

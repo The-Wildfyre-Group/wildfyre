@@ -1,0 +1,150 @@
+
+    <!-- deadline Filters -->
+	<% unless @incomplete_deadline_filters.blank? %>
+        <h4>By Deadline</h4>
+      <ul id="destination_filters no-margin" class="small-items list-group pb10 mb5 filters">
+        <!-- <hr/> -->
+          <% @incomplete_deadline_filters.each do |deadline_filter| %>
+            <li class="list-group-item text-left">
+              <div class="checkbox check-transparent">
+                <a href="javascript:;">
+                  <input type="checkbox" <%= 'checked=checked' if deadline_filter[:current] %> data-filter-type="<%= deadline_filter[:type] %>" id="<%= deadline_filter[:value] %>" data-filter-value="<%= deadline_filter[:value] %>">
+                  <label for="<%= deadline_filter[:value] %>" class="h7 no-margin custom-font">
+                    <%= deadline_filter[:value] %>
+                  </label>
+                  <span class="pull-right h7 semi-bold"><%= deadline_filter[:count] %></span>
+                  <% end %>
+                </a>
+              </div>
+            </li>
+      </ul>
+	  <% end %>
+
+<% unless @incomplete_user_filters.blank? %>
+    <!-- User Filters --> 
+        <h4>Assigned To</h4>
+      <ul id="destination_filters no-margin" class="small-items list-group pb10 mb5 filters">
+        <!-- <hr/> -->
+          <% @incomplete_user_filters.each do |user_filter| %>
+            <li class="list-group-item text-left">
+              <div class="checkbox check-transparent">
+                <a href="javascript:;">
+                  <input type="checkbox" <%= 'checked=checked' if user_filter[:current] %> data-filter-type="<%= user_filter[:type] %>" id="<%= user_filter[:value] %>" data-filter-value="<%= user_filter[:value] %>">
+                  <label for="<%= user_filter[:value] %>" class="h7 no-margin custom-font">
+                    <%= user_filter[:value].titleize %>
+                  </label>
+                  <span class="pull-right h7 semi-bold"><%= user_filter[:count] %></span>
+                  <% end %>
+                </a>
+              </div>
+            </li>
+      </ul>
+	  <% end %>
+	  
+	  
+	  
+	  <% unless @incomplete_category_filters.blank? %>
+      <!-- Category Filters --> 
+          <h4>By Category</h4>
+        <ul id="destination_filters no-margin" class="small-items list-group pb10 mb5 filters">
+          <!-- <hr/> -->
+            <% @incomplete_category_filters.each do |category_filter| %>
+              <li class="list-group-item text-left">
+                <div class="checkbox check-transparent">
+                  <a href="javascript:;">
+                    <input type="checkbox" <%= 'checked=checked' if category_filter[:current] %> data-filter-type="<%= category_filter[:type] %>" id="<%= category_filter[:value] %>" data-filter-value="<%= category_filter[:value] %>">
+                    <label for="<%= category_filter[:value] %>" class="h7 no-margin custom-font">
+                      <%= category_filter[:value] %>
+                    </label>
+                    <span class="pull-right h7 semi-bold"><%= category_filter[:count] %></span>
+                    <% end %>
+                  </a>
+                </div>
+              </li>
+        </ul>
+		<% end %>
+		
+		<% unless @incomplete_priority_filters.blank? %>
+        <!-- Priority Filters --> 
+            <h4>By Priority</h4>
+          <ul id="destination_filters no-margin" class="small-items list-group pb10 mb5 filters">
+            <!-- <hr/> -->
+              <% @incomplete_priority_filters.each do |priority_filter| %>
+                <li class="list-group-item text-left">
+                  <div class="checkbox check-transparent">
+                    <a href="javascript:;">
+                      <input type="checkbox" <%= 'checked=checked' if priority_filter[:current] %> data-filter-type="<%= priority_filter[:type] %>" id="<%= priority_filter[:value] %>" data-filter-value="<%= priority_filter[:value] %>">
+                      <label for="<%= priority_filter[:value] %>" class="h7 no-margin custom-font">
+                        <%= priority_filter[:value] %>
+                      </label>
+                      <span class="pull-right h7 semi-bold"><%= priority_filter[:count] %></span>
+                      <% end %>
+                    </a>
+                  </div>
+                </li>
+          </ul>
+		  <% end %>
+		  
+		  <% unless @incomplete_site_filters.blank? %>
+          <!-- Site Filters --> 
+              <h4>By Site</h4>
+            <ul id="destination_filters no-margin" class="small-items list-group pb10 mb5 filters">
+              <!-- <hr/> -->
+                <% @incomplete_site_filters.each do |site_filter| %>
+                  <li class="list-group-item text-left">
+                    <div class="checkbox check-transparent">
+                      <a href="javascript:;">
+                        <input type="checkbox" <%= 'checked=checked' if site_filter[:current] %> data-filter-type="<%= site_filter[:type] %>" id="<%= site_filter[:value] %>" data-filter-value="<%= site_filter[:value] %>">
+                        <label for="<%= site_filter[:value] %>" class="h7 no-margin custom-font">
+                          <%= site_filter[:value] %>
+                        </label>
+                        <span class="pull-right h7 semi-bold"><%= site_filter[:count] %></span>
+                        <% end %>
+                      </a>
+                    </div>
+                  </li>
+            </ul>
+			<% end %>
+    
+      <!-- Project Filters --> 
+	  <% unless @incomplete_project_filters.blank? %>
+          <h4>By Project</h4>
+        <ul id="destination_filters no-margin" class="small-items list-group pb10 mb5 filters">
+          <!-- <hr/> -->
+            <% @incomplete_project_filters.each do |project_filter| %>
+              <li class="list-group-item text-left">
+                <div class="checkbox check-transparent">
+                  <a href="javascript:;">
+                    <input type="checkbox" <%= 'checked=checked' if project_filter[:current] %> data-filter-type="<%= project_filter[:type] %>" id="<%= project_filter[:value] %>" data-filter-value="<%= project_filter[:value] %>">
+                    <label for="<%= project_filter[:value] %>" class="h7 no-margin custom-font">
+                      <%= project_filter[:value] %>
+                    </label>
+                    <span class="pull-right h7 semi-bold"><%= project_filter[:count] %></span>
+                    <% end %>
+                  </a>
+                </div>
+              </li>
+        </ul>
+		<% end %>
+	  
+	  <% unless @incomplete_todo_filters.blank? %>
+      <!-- ToDo Filters --> 
+          <h4>By Item</h4>
+        <ul id="destination_filters no-margin" class="small-items list-group pb10 mb5 filters">
+          <!-- <hr/> -->
+            <% @incomplete_todo_filters.each do |todo_filter| %>
+              <li class="list-group-item text-left">
+                <div class="checkbox check-transparent">
+                  <a href="javascript:;">
+                    <input type="checkbox" <%= 'checked=checked' if todo_filter[:current] %> data-filter-type="<%= todo_filter[:type] %>" id="<%= todo_filter[:value] %>" data-filter-value="<%= todo_filter[:value] %>">
+                    <label for="<%= todo_filter[:value] %>" class="h7 no-margin custom-font">
+                      <%= todo_filter[:value] %>
+                    </label>
+                    <span class="pull-right h7 semi-bold"><%= todo_filter[:count] %></span>
+                    <% end %>
+                  </a>
+                </div>
+              </li>
+        </ul>
+		<% end %>
+	  

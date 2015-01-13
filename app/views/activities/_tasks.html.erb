@@ -1,0 +1,7 @@
+<%= render 'activities/variables', activity: activity %>
+
+<% if activity.action == "Completed Task" %>
+  <%= User.find(activity.user_id).first_name.capitalize %> completed task <b><u><%= @task.name %></b></u>.
+<% elsif activity.action == "Incomplete Task" %>
+  <%#= User.find(activity.user_id).first_name %> deleted a resource tracking.
+<% end %>

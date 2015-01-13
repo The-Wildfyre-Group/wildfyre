@@ -1,0 +1,7 @@
+<%= render 'activities/variables', activity: activity %>
+
+<% if activity.action == "Added Budget" %>
+  <%= User.find(activity.user_id).first_name.capitalize %> added a new <%= link_to @budget.name, @budget %>.
+<% elsif activity.action == "Remove Budget" %>
+  <%= User.find(activity.user_id).first_name %> deleted a budget.
+<% end %>

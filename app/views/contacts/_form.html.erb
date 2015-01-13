@@ -5,55 +5,91 @@
 <%= f.text_field :middle_name %>
 <%= "Last Name" %>
 <%= f.text_field :last_name %><br><br>
-<%= "Company" %>
-<%= f.text_field :company %>
-<%= "Title" %>
-<%= f.text_field :title %><br><br>
-<%= "Personal Email" %>
-<%= f.text_field :personal_email %>
-<%= "Work Email" %>
-<%= f.text_field :work_email %>
-<%= "Cell Phone" %>
-<%= f.text_field :cell_phone %>
-<%= "Work Phone" %>
-<%= f.text_field :work_phone %><br><br>
-<%= "Website" %>
-<%= f.text_field :website %>
-<%= "LinkedIn" %>
-<%= f.text_field :linkedin %>
-<%= "Facebook" %>
-<%= f.text_field :facebook %>
-<%= "Twitter" %>
-<%= f.text_field :twitter %><br><br>
-<%= "Street Address" %>
-<%= f.text_field :street_address %>
-<%= "City" %>
-<%= f.text_field :city %>
-<%= "State" %>
-<%= f.text_field :state %>
-<%= "Zip Code" %>
-<%= f.text_field :zip_code %>
-<%= "Country" %>
-<%= f.text_field :country %><br><br>
-<%= "Undergraduate School" %>
-<%= f.text_field :undergraduate_school %>
-<%= "Undergraduate Degree" %>
-<%= f.text_field :undergraduate_degree %>
-<%= "Undergraduate Year" %>
-<%= f.date_field :undergraduate_year %><br><br>
-<%= "Graduate School" %>
-<%= f.text_field :graduate_school %>
-<%= "Graduate Degree" %>
-<%= f.text_field :graduate_degree %>
-<%= "Graduate Year" %>
-<%= f.date_field :graduate_year %><br><br>
-<%= "Birthday" %>
-<%= f.date_field :birthday %><br><br>
-<%= "Married" %>
-<%= f.check_box :married %><br><br>
-<%= "Kids" %>
-<%= f.text_area :kids %>
 
+	<%= f.fields_for :profile, @profile do |builder| %>
 
+	Mobile: <%= builder.text_field :mobile_phone_number, class: "form-control"  %><br>
+	
+	Work Phone: <%= builder.text_field :work_phone_number, class: "form-control"  %><br>
+	
+	Personal Email: <%= builder.text_field :personal_email, class: "form-control"  %><br>
+	
+	Work Email: <%= builder.text_field :work_email, class: "form-control"  %><br>
+	
+	Home Phone Number: <%= builder.text_field :home_phone_number, class: "form-control"  %><br>
+	
+	Website 1:<%= builder.text_field :website_1, class: "form-control"  %><br>
+	
+	Website 2: <%= builder.text_field :website_2, class: "form-control"  %><br>
+
+	Title: <%= builder.text_field :title, class: "form-control"  %><br>
+
+	Company: <%= builder.text_field :company, class: "form-control"  %><br>
+	
+	Street Address:<%= builder.text_field :street_address, class: "form-control"  %><br>
+	
+	<%= builder.select(:city, User.cities_list.sort, {prompt: "Select City"}, {:class => "form-control"})%><br>
+	
+	<%= builder.select(:state, User.states_list.sort, {prompt: "Select State"}, {:class => "form-control"})%><br>
+
+	<%= builder.select(:country, User.countries_list.sort, {prompt: "Select Country"}, {:class => "form-control"})%><br>
+	
+	Zipcode: <%= builder.text_field :zipcode, class: "form-control"  %><br>
+
+	Twitter: <%= builder.text_field :twitter, class: "form-control"  %><br>
+                    
+	Instagram: <%= builder.text_field :instagram, class: "form-control"  %><br>
+                    
+	Facebook: <%= builder.text_field :facebook, class: "form-control"  %><br>
+ 
+	Linkedin: <%= builder.text_field :linkedin, class: "form-control"  %><br>
+
+	Bio: <%= builder.text_area :bio, class: "form-control", cols: 50, rows: 10, placeholder: "Describe yourself." %><br>
+	
+	Married: <%= builder.check_box :married, class: "form-control"  %><br>
+	
+	Kids: <%= builder.check_box :kids, class: "form-control"  %><br>
+	
+	Anniversary: <%= builder.date_field :anniversary, class: "form-control"  %><br>
+	
+	Birthday: <%= builder.date_field :birthday, class: "form-control"  %><br>
+	
+	Number of Kids: <%= builder.text_field :number_of_kids, class: "form-control"  %><br>
+	
+	Undergraduate School: <%= builder.text_field :undergraduate_school, class: "form-control", placeholder: "College/University" %><br>
+                                 
+	Undergraduate Major: <%= builder.text_field :undergraduate_major, class: "form-control", placeholder: "Study of Degree" %><br>
+                               
+	Undergraduate Year:<%= builder.text_field :undergraduate_year, class: "form-control", placeholder: "Year" %><br>
+            
+	Undergraduate Degree: <%= builder.select(:undergraduate_degree, ["BA", "BS", "BSE", "BBA", "BFA"], {prompt: "Degree"}, {:class => "form-control"})%><br>
+                                
+	Graduate School: <%= builder.text_field :graduate_school, class: "form-control", placeholder: "College/University" %><br>
+ 
+	Graduate Major:<%= builder.text_field :graduate_major, class: "form-control", placeholder: "Study of Degree" %><br>
+ 
+	Graduate Year:<%= builder.text_field :graduate_year, class: "form-control", placeholder: "Year" %><br>
+
+	Graduate Degree: <%= builder.select(:graduate_degree, ["PhD", "JD", "MD"], {prompt: "Degree"}, {:class => "form-control"})%><br>
+   
+	Doctorate School: <%= builder.text_field :doctorate_school, class: "form-control", placeholder: "College/University" %><br>
+  
+	Doctorate Major: <%= builder.text_field :doctorate_major, class: "form-control", placeholder: "Study of Degree" %><br>
+
+	Doctorate Year: <%= builder.text_field :doctorate_year, class: "form-control", placeholder: "Year" %><br>
+
+	Doctorate Degree: <%= builder.select(:doctorate_degree, ["MA", "MS", "MSE", "MFA"], {prompt: "Degree"}, {:class => "form-control"})%><br>
+ 
+	Hometown: <%= builder.select(:hometown, User.cities_list.sort, {prompt: "Select Location"}, {:class => "form-control"})%><br>
+
+	Certifications: <%= builder.text_field :certifications, class: "form-control", placeholder: "Certifications" %><br>
+ 
+	Industries: <%= builder.text_area :industries, rows: "2", class: "form-control", placeholder: "Industries" %><br>
+
+	Skills: <%= builder.collection_select :skills, Skill.skills.sort, :to_s, :to_s, {include_blank: false}, {:multiple => true, :style => "width:100%", :id => "select-skills", :class => "form-control", :placeholder => "Financial Modeling, Portfolio Management..."  } %><br>
+     
+	Interests: <%= builder.text_area :interests, rows: "10", class: "form-control", placeholder: "Interests" %><br>
+	
+	<% end %>
 <br><br><%= f.submit %>
 <% end %>

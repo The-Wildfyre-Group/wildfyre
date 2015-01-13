@@ -1,0 +1,84 @@
+
+<!-- javascript
+  ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript">
+  window.filters = <%= raw @current_filters.to_json %>;
+  var searchTimeout = null;
+
+    // filterElement is either the <a.close> element or the filter checkbox (both have data attributes filter-type/filter-value)
+    function removeFilter(filterElement){
+      $.each(window.filters, function(i){
+        // console.log('filter_type: ' + window.filters[i].type + ', data-filter-type: ' + filterElement.data('filter-type'))
+        // console.log('filter_value: ' + window.filters[i].value + ', data-filter-value: ' + filterElement.data('filter-value'))
+        if(window.filters[i].type === filterElement.data('filter-type') && window.filters[i].value === filterElement.data('filter-value')) {
+          // console.log('removed');
+          window.filters.splice(i,1);
+          return false;
+        } else {
+          // console.log('not removed');
+        }
+      });
+      updateSearch();
+    }
+
+    function addFilter(filterElement) {
+      window.filters.push({type: filterElement.data('filter-type'), value: filterElement.data('filter-value')})
+      updateSearch();
+    }
+
+    updateSearch = function() {
+      if(searchTimeout){
+        clearTimeout(searchTimeout);
+      }
+      searchTimeout = setTimeout(function(){
+        searchTimeout = null;
+        startSearch();
+      }, 500);
+    }
+    function startSearch(){
+      var params = <%=raw params.to_json%>;
+      var newLocation = '<%= raw(tasks_path) %>';
+
+      if (window.filters.length > 0) {
+        params["current_filters"] =  window.filters;
+      }
+      params["ajax"] = true
+	  	
+      $.ajax({
+        method: "GET",
+        url: newLocation,
+        data: params,
+        success: function(){
+        }
+      });
+
+    }
+
+    /* checkbox filters */
+    $('.filters input[type=checkbox]').click(function(){
+      if ($(this).is(':checked')) {
+        // we just checked it
+        addFilter($(this));
+      } else {
+        // we just unchecked it
+        removeFilter($(this));
+      }
+    });
+
+    /* removing current filters - a.close clicked */
+    $('.current-filters .close').click(function(){ removeFilter($(this)); });
+
+
+    /* tagging-filtering */
+    $('.tagging').click(function(){
+        if ($(this).hasClass('selected')) {
+          $(this).removeClass('selected')
+          removeFilter($(this));
+        } else {
+          $(this).addClass('selected')
+          addFilter($(this));
+        }
+      });
+
+</script>

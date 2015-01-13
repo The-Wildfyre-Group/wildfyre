@@ -13,6 +13,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
+      Activity.track(current_user.id, nil, "Added Contact", params[:controller], @contact.id, true)
       redirect_to contacts_path
     else
       redirect_to contacts_path

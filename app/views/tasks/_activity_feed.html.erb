@@ -1,0 +1,5 @@
+<% @activities.each do |activity| %>
+  <% if object_exists?(activity.trackable_type, activity.trackable_id )%>
+    <%= render "activities/#{activity.trackable_type.underscore}", activity: activity %><br><br>
+  <% end %>
+<% end %>

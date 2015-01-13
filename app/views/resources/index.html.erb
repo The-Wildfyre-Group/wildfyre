@@ -1,7 +1,11 @@
 <% @resources.each do |resource| %>
+<%= resource.name %><br>
 <%= resource.description %><br>
+<%= resource.units %><%= resource.unit %><br>
 <%= resource.link %><br>
 <%= resource.category %><br>
 <%= link_to "Edit", edit_resource_path(resource) %>
+<%= link_to "view", resource %>
+<%= render 'checkout_resource', resource: resource %>
 <br><br>
 <% end %>

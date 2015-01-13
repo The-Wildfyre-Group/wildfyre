@@ -1,0 +1,5 @@
+<% @contact = Contact.find(activity.trackable_id) if activity.trackable_type == 'contacts' %>
+<% @budget = Budget.find(activity.trackable_id) if activity.trackable_type == 'budgets' %>
+<% @resource = Resource.find(activity.trackable_id) if activity.trackable_type == 'resources' %>
+<% @resource_completion = ResourceCompletion.find(activity.trackable_id) if activity.trackable_type == 'resource_completions'%>
+<% @task = Task.find(activity.trackable_id) if activity.trackable_type == 'tasks'%>

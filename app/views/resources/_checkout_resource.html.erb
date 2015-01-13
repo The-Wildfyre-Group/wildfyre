@@ -1,0 +1,15 @@
+<div id="resource_completion_form">
+	<% if current_user.resource_completions.find_by_resource_id(resource.id) %>
+	 <!-- If the user is signed in AND already loyal to the resource, show that the person is. --> 
+	  <%= form_for(current_user.resource_completions.find_by_resource_id(resource.id), html: { method: :delete }) do |f| %>
+	    <%= button_tag "remove" %>
+	  <% end %> 
+	 <% else %>
+	 <!-- If the user is signed in BUT not already loyal to the resource, show option to join. --> 
+	  <%= form_for(current_user.resource_completions.build(resource_id: resource.id)) do |f| %>
+	  <%= f.hidden_field :resource_id, value: resource.id  %>
+	    <%= button_tag "checkout"%>
+	  <% end %>
+	<% end %>
+  </div>
+

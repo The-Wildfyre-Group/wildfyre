@@ -1,0 +1,32 @@
+<%= @site.name %>
+<br>
+<% if @site.git.present? %>
+<%= link_to "Git Repository", @site.git, :target => "_blank" %>
+<% else %>
+Git Repository Not Created
+<% end %>
+
+<br>
+<%= link_to "Site", @site.url, :target => "_blank" %>
+<br>
+<%= @site.status %>
+<br>
+<%= format(@site.renewal_date, 3) %>
+
+<br><%= link_to "Next Site", Site.friendly.find(next_site(@site)) %>
+<br><%= link_to "Last Site", Site.friendly.find(last_site(@site)) %>
+
+
+
+
+<br><br><br><br><br>
+Work History:<br><br>
+
+<% @complete_tasks.each do |task| %>
+<% user = User.find(task.closed_by_id)%>
+
+<%= link_to user.full_name, user %> closed task <b><%= task.name %></b>
+<br>Completion Notes: <%= task.completion_notes %>
+
+
+<% end %>

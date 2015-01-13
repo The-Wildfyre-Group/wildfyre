@@ -1,18 +1,19 @@
 class CreateResources < ActiveRecord::Migration
   def change
     create_table :resources do |t|
-      t.string :description
+      t.string :name
+      t.text :description
       t.string :link
       t.string :category
-      t.string :notes
-      t.string :status
       t.string :duration
+      t.integer :units
+      t.string :unit
       t.string :level
       t.string :format
-      t.date :completed_date_1
-      t.date :complete_date_2
-      t.string :resource
+      t.integer :user_id
+      t.string :slug, null: false
       t.timestamps
     end
+    add_index :resources, :name
   end
 end
