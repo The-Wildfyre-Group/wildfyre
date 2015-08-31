@@ -1,0 +1,31 @@
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">New Site</h4>
+      </div>
+      <div class="modal-body">
+		<%= form_for @site, html: {id: 'site-form', data: {remote: true}} do |f|   %>
+		  Name: <%= f.text_field  :name  %><br><br>
+		  
+		  Status: <%= f.text_field :status %><br><br>
+		  Url: <%= f.text_field :url %><br><br>
+		  Git: <%= f.text_field :git %><br><br>
+		  
+		  Primary: <%= f.text_field :primary %><br><br>
+		  Primary Site ID: <%= f.text_field :primary_site_id %><br><br>
+		  Renewal: <%= f.date_field :renewal_date %><br><br>
+		  
+		  
+		
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary"> <%= f.submit :submit %></button>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
