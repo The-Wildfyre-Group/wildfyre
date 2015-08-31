@@ -9,7 +9,7 @@
 <%= render 'activity_feed' %>
 
 <div class="page-sidebar mini mini-mobile" id="main-menu" data-inner-menu="1">
-<%= render 'filters' %>
+<%= render 'filters', incomplete_deadline_filters: @incomplete_deadline_filters, incomplete_user_filters: @incomplete_user_filters, incomplete_category_filters: @incomplete_category_filters, incomplete_priority_filters: @incomplete_priority_filters, incomplete_site_filters: @incomplete_site_filters, incomplete_project_filters: @incomplete_project_filters, incomplete_todo_filters: @incomplete_todo_filters %>
 </div>
 
      
@@ -32,6 +32,3 @@
 
 
 
-
-<%= render 'task_js'%>
-<%= render 'js'%>

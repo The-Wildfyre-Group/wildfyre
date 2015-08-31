@@ -1,10 +1,10 @@
 
     <!-- deadline Filters -->
-	<% unless @incomplete_deadline_filters.blank? %>
+	<% unless incomplete_deadline_filters.blank? %>
         <h4>By Deadline</h4>
       <ul id="destination_filters no-margin" class="small-items list-group pb10 mb5 filters">
         <!-- <hr/> -->
-          <% @incomplete_deadline_filters.each do |deadline_filter| %>
+          <% incomplete_deadline_filters.each do |deadline_filter| %>
             <li class="list-group-item text-left">
               <div class="checkbox check-transparent">
                 <a href="javascript:;">
@@ -20,12 +20,12 @@
       </ul>
 	  <% end %>
 
-<% unless @incomplete_user_filters.blank? %>
+<% unless incomplete_user_filters.blank? %>
     <!-- User Filters --> 
         <h4>Assigned To</h4>
       <ul id="destination_filters no-margin" class="small-items list-group pb10 mb5 filters">
         <!-- <hr/> -->
-          <% @incomplete_user_filters.each do |user_filter| %>
+          <% incomplete_user_filters.each do |user_filter| %>
             <li class="list-group-item text-left">
               <div class="checkbox check-transparent">
                 <a href="javascript:;">
@@ -43,12 +43,12 @@
 	  
 	  
 	  
-	  <% unless @incomplete_category_filters.blank? %>
+	  <% unless incomplete_category_filters.blank? %>
       <!-- Category Filters --> 
           <h4>By Category</h4>
         <ul id="destination_filters no-margin" class="small-items list-group pb10 mb5 filters">
           <!-- <hr/> -->
-            <% @incomplete_category_filters.each do |category_filter| %>
+            <% incomplete_category_filters.each do |category_filter| %>
               <li class="list-group-item text-left">
                 <div class="checkbox check-transparent">
                   <a href="javascript:;">
@@ -64,12 +64,12 @@
         </ul>
 		<% end %>
 		
-		<% unless @incomplete_priority_filters.blank? %>
+		<% unless incomplete_priority_filters.blank? %>
         <!-- Priority Filters --> 
             <h4>By Priority</h4>
           <ul id="destination_filters no-margin" class="small-items list-group pb10 mb5 filters">
             <!-- <hr/> -->
-              <% @incomplete_priority_filters.each do |priority_filter| %>
+              <% incomplete_priority_filters.each do |priority_filter| %>
                 <li class="list-group-item text-left">
                   <div class="checkbox check-transparent">
                     <a href="javascript:;">
@@ -85,12 +85,12 @@
           </ul>
 		  <% end %>
 		  
-		  <% unless @incomplete_site_filters.blank? %>
+		  <% unless incomplete_site_filters.blank? %>
           <!-- Site Filters --> 
               <h4>By Site</h4>
             <ul id="destination_filters no-margin" class="small-items list-group pb10 mb5 filters">
               <!-- <hr/> -->
-                <% @incomplete_site_filters.each do |site_filter| %>
+                <% incomplete_site_filters.each do |site_filter| %>
                   <li class="list-group-item text-left">
                     <div class="checkbox check-transparent">
                       <a href="javascript:;">
@@ -107,11 +107,11 @@
 			<% end %>
     
       <!-- Project Filters --> 
-	  <% unless @incomplete_project_filters.blank? %>
+	  <% unless incomplete_project_filters.blank? %>
           <h4>By Project</h4>
         <ul id="destination_filters no-margin" class="small-items list-group pb10 mb5 filters">
           <!-- <hr/> -->
-            <% @incomplete_project_filters.each do |project_filter| %>
+            <% incomplete_project_filters.each do |project_filter| %>
               <li class="list-group-item text-left">
                 <div class="checkbox check-transparent">
                   <a href="javascript:;">
@@ -127,12 +127,12 @@
         </ul>
 		<% end %>
 	  
-	  <% unless @incomplete_todo_filters.blank? %>
+	  <% unless incomplete_todo_filters.blank? %>
       <!-- ToDo Filters --> 
           <h4>By Item</h4>
         <ul id="destination_filters no-margin" class="small-items list-group pb10 mb5 filters">
           <!-- <hr/> -->
-            <% @incomplete_todo_filters.each do |todo_filter| %>
+            <% incomplete_todo_filters.each do |todo_filter| %>
               <li class="list-group-item text-left">
                 <div class="checkbox check-transparent">
                   <a href="javascript:;">
@@ -147,4 +147,11 @@
               </li>
         </ul>
 		<% end %>
+		
+		
+		
+		<div id="js">
+		<%= render 'task_js'%>
+		<%= render 'js'%>
+		</div>
 	  

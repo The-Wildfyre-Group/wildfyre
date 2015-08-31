@@ -4,6 +4,8 @@ $('#incomplete_tasks').append('<%= j render(@task) %>');
 $('#myModal').modal('hide');
 $('#task-form')[0].reset()
 $('#edit_task_<%= @task.id %>').submitOnCheck();
+$('#main-menu').empty();
+$('#main-menu').append("<%= j render 'filters', incomplete_deadline_filters: @incomplete_deadline_filters, incomplete_user_filters: @incomplete_user_filters, incomplete_category_filters: @incomplete_category_filters, incomplete_priority_filters: @incomplete_priority_filters, incomplete_site_filters: @incomplete_site_filters, incomplete_project_filters: @incomplete_project_filters, incomplete_todo_filters: @incomplete_todo_filters %>");
 
 // <%if @result %>
 	
